@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Kachen";
+  src: url("../fonts/Kachenjunga/Kanchenjunga-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Cascadia";
+  src: url("../fonts/Cascadia_Code/static/CascadiaCode-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Light.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +21,56 @@
 
 body {
   background-color: #030712;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .main {
   min-height: 100vh;
+}
+
+header {
+  display: flex;
+  height: 65px;
+  align-items: center;
+  padding-left: 4em;
+  padding-right: 4em;
+  border-bottom: 1px solid #333333;
+}
+
+
+header a {
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+  width: 120px;
+  animation: loadHeader 1s ease-in-out;
+}
+
+header h2 {
+  background-image: linear-gradient(90deg,rgba(255, 255, 255, 1) 25%, #737373 100%);
+  background-clip: auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header a:hover {
+  letter-spacing: 6px;
+}
+
+@keyframes loadHeader {
+  0% {
+    letter-spacing: 2px;
+  }
+
+  50% {
+    letter-spacing: 6px;
+  }
+
+  100% {
+    letter-spacing: 2px;
+  }
 }
