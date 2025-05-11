@@ -13,6 +13,11 @@
   src: url("../fonts/Ubuntu/Ubuntu-Light.ttf");
 }
 
+:root {
+  --header-size: 65px;
+  --content-height: calc(100vh - var(--header-size));
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,7 +36,7 @@ body {
 
 header {
   display: flex;
-  height: 65px;
+  height: var(--header-size);
   align-items: center;
   padding-left: 4em;
   padding-right: 4em;
@@ -47,7 +52,6 @@ header a {
   letter-spacing: 2px;
   transition: all 0.3s ease-in-out;
   width: 120px;
-  animation: loadHeader 1s ease-in-out;
 }
 
 header h2 {
@@ -61,16 +65,6 @@ header a:hover {
   letter-spacing: 6px;
 }
 
-@keyframes loadHeader {
-  0% {
-    letter-spacing: 2px;
-  }
-
-  50% {
-    letter-spacing: 6px;
-  }
-
-  100% {
-    letter-spacing: 2px;
-  }
+.content {
+  min-height: var(--content-height);
 }
