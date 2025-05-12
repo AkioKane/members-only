@@ -13,7 +13,21 @@
       <a href="/"><h2>Jibber</h2></a>
     </header>
 
-    <div class="content"></div>
+    <div class="content">
+      <div class="posts">
+        <% for (data of database.messages) {%>
+          <div class="item">
+            <div class="message">
+              <p><%= data.content %></p>
+            </div>
+            <div class="user-info">
+              <img src="/assets/user.png" alt="user">
+              <span><%= database.users[data.user_id-1].username %></span>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
   </div>
 
 </body>

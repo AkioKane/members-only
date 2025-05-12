@@ -66,5 +66,40 @@ header a:hover {
 }
 
 .content {
+  display: flex;
+  justify-content: center;
   min-height: var(--content-height);
+}
+
+.posts {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-width: 500px;
+  gap: 2em;
+}
+
+.posts .item {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  min-height: 50px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #111827;
+}
+
+.posts .item .message {
+  color: #d1d5db;
+}
+
+.posts .item .user-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.posts .item .user-info img {
+  height: 24px;
 }
