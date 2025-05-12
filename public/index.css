@@ -88,6 +88,12 @@ header a:hover {
   padding: 15px;
   border-radius: 8px;
   background-color: #111827;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.posts .item:hover {
+  transform: scale(1.025);
 }
 
 .posts .item .message {
