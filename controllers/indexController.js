@@ -7,7 +7,7 @@ async function getMessages() {
 
 async function indexRouterGet(req, res) {
   const data = await getMessages();
-  console.log(data);
+  // console.log(data);
 
   return res.render("index", {title: "Home", database: data});
 }

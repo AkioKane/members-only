@@ -33,11 +33,21 @@
 body {
   background-color: #030712;
   color: white;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Cascadia", sans-serif;
 }
 
 .main {
-  min-height: 100vh;
+  height: 100vh;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: var(--content-height);
+  padding-bottom: 8em;
+  gap: 5px;
 }
 
 header {
@@ -85,47 +95,35 @@ header h1:hover {
   color: #d1d5db;
 }
 
-.content {
-  display: flex;
-  justify-content: center;
-  min-height: var(--content-height);
+.error * {
+  transition: all 0.1s ease-in-out;
 }
 
-.posts {
-  margin-top: 2em;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  min-width: 500px;
-  gap: 2em;
-}
 
-.posts .item {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  min-height: 50px;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #111827;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.posts .item:hover {
-  transform: scale(1.025);
-}
-
-.posts .item .message {
+.error *:hover {
   color: #d1d5db;
 }
 
-.posts .item .user-info {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.error a:hover {
+  button {
+    transform: scale(1.05);
+    color: #d1d5db;
+  }
 }
 
-.posts .item .user-info img {
-  height: 24px;
+.error span {
+  font-family: 'Cascadia Thin';
+  font-weight: 100;
+}
+
+.error .return-home {
+  width: 250px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+  background-color: #1f2937;
+  font-family: "Cascadia Thin";
 }

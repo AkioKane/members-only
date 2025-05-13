@@ -10,6 +10,16 @@ async function getAllMessages() {
   };
 }
 
+async function createUser() {
+
+}
+
+async function createMessage() {
+
+}
+
 module.exports = {
-  getAllMessages
+  getAllMessages,
+  createUser,
+  createMessage
 }
