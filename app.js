@@ -5,6 +5,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 const indexRouter = require("./routes/indexRouter");
+const registerRouter = require("./routes/registerRouter");
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs")
 
 app.use("/", indexRouter)
+app.use("/register", registerRouter)
 
 app.use((req, res, next) => {
   res.status(404).render("404", {
