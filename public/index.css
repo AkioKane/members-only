@@ -50,7 +50,6 @@ header {
   border-bottom: 1px solid #333333;
 }
 
-
 header .logo-header {
   display: flex;
   justify-content: center;
@@ -74,6 +73,10 @@ header h1 {
 }
 
 header .container-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: end;
   width: var(--header-child-width);
 }
 
@@ -83,6 +86,54 @@ header .logo-header:hover {
 
 header h1:hover {
   color: #d1d5db;
+}
+
+header .container-user img {
+  height: 32px;
+}
+
+.user-logo {
+  padding-right: 15px;
+}
+
+.account-details {
+  display: none;
+}
+
+.container-user:hover .account-details {
+  display: flex;
+}
+
+.container-user:hover .user-avatar {
+  opacity: 0;
+}
+
+header .container-user .account-details img {
+  padding-left: 1em;
+  border-left: 1px solid white;
+  height: 32px;
+}
+
+header .container-user .account-details {
+  position: absolute;
+  display: none;
+  align-items: center;
+  background-color: #111827;
+  padding: 10px;
+  padding-right: 15px;
+  border-radius: 8px;
+}
+
+header .container-user .account-details a {
+  color: #d1d5db;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+header .container-user .account-details a:hover {
+  span {
+    color: white;
+  }
 }
 
 .content {
