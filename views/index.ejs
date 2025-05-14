@@ -23,8 +23,14 @@
               <p><%= data.content %></p>
             </div>
             <div class="user-info">
-              <img src="/assets/user.png" alt="user">
-              <span><%= database.users[data.user_id-1].username %></span>
+              <div>
+                <img src="/assets/user.png" alt="user">
+                <span><%= database.users[data.user_id-1].username %></span>
+              </div>
+              <span>
+                <%= data.date.toLocaleDateString("ru-RU") %>
+                  <%= data.date.toLocaleTimeString("ru-RU", { hour: '2-digit' , minute: '2-digit' }) %>
+              </span>
             </div>
           </div>
         <% } %>

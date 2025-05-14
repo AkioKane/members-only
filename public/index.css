@@ -123,6 +123,7 @@ header h1:hover {
 .posts .item .user-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 5px;
 }
 
