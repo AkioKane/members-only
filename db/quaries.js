@@ -10,11 +10,29 @@ async function getAllMessages() {
   };
 }
 
-async function createUser(username, email, password_hash) {
+async function validUsername(username) {
+  const { rows } = await pool.query("SELECT username FROM users WHERE username = $1;", [username]);
+  if (rows.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+async function validEmail(email) {
+  const { rows } = await pool.query("SELECT email FROM users WHERE email = $1;", [email]);
+  if (rows.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+async function createUser(username, email, hashedPassword) {
   return await pool.query(`
     INSERT INTO users (username, email, password_hash)
     VALUES ($1, $2, $3)`,
-    [username, email, password_hash]
+    [username, email, hashedPassword]
   );
 }
 
@@ -28,6 +46,8 @@ async function createMessage(user_id, content) {
 
 module.exports = {
   getAllMessages,
+  validUsername,
+  validEmail,
   createUser,
   createMessage
 }

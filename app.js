@@ -2,15 +2,16 @@ const express = require("express");
 const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 
 const indexRouter = require("./routes/indexRouter");
 const registerRouter = require("./routes/registerRouter");
+const initialize = require("./utils/passport-config");
 
 const app = express();
 
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
+initialize(passport);
 
 app.use(express.urlencoded({ extended: false }));
 

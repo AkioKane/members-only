@@ -11,11 +11,39 @@
   <div class="main">
     <header>
       <a href="/" class="logo-header"><h2>Jibber</h2></a>
-      <h1>Register New Account</h1>
-      <div class="container-user"></div>
+      <h1>Registration</h1>
+      <div class="container-user">
+        <div id="account-details" class="account-details">
+          <div class="details">
+            <a href="/logout">&#8226; <span>Log Out</span></a>
+          </div>
+          <img src="/assets/user.png" alt="account">
+        </div>
+        <img class="user-logo" src="/assets/user.png" alt="account">
+      </div>
     </header>
 
-    <div class="content"></div>
+    <div class="content">
+      <div class="container-register">
+        <% if (error) {%>
+          <div class="error-container">
+            <span><%= error %></span>
+          </div>
+        <% } %>
+        <form action="/register" method="post">
+          <label for="username">Username*:</label>
+          <input name="username" type="text" id="username" placeholder="Username" required>
+          
+          <label for="email">Email*:</label>
+          <input name="email" type="email" id="email" placeholder="user@example.com" required>
+
+          <label for="password">Password*:</label>
+          <input name="password" type="password" id="password" placeholder="Password" required>
+
+          <button class="btn-sumbit" type="submit">Sumbit</button>
+        </form>
+      </div>
+    </div>
   </div>
 
 </body>
