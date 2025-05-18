@@ -5,6 +5,7 @@ const passport = require("passport");
 
 const indexRouter = require("./routes/indexRouter");
 const registerRouter = require("./routes/registerRouter");
+const logInRouter = require("./routes/logInRouter");
 const initialize = require("./utils/passport-config");
 
 const app = express();
@@ -30,6 +31,7 @@ app.set("view engine", "ejs")
 
 app.use("/", indexRouter)
 app.use("/register", registerRouter)
+app.use("/log-in", logInRouter)
 
 app.use((req, res, next) => {
   res.status(404).render("404", {
