@@ -139,3 +139,87 @@ header .container-user .account-details a:hover {
     color: white;
   }
 }
+
+.content {
+  display: flex;
+  justify-content: center;
+  min-height: var(--content-height);
+}
+
+.content .container-log-in {
+  min-width: 300px;
+  max-width: 600px;
+  width: 50%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.content .container-log-in form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.content .container-log-in form label {
+  display: flex;
+  transition: 0.1s ease-in-out;
+}
+
+.content .container-log-in form label:hover {color: #d1d5db;}
+
+.content .container-log-in form input {
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  padding-left: 10px;
+  margin-bottom: 1em;
+  background-color: #111827;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+.content .container-log-in form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #374151;
+}
+
+.content .container-log-in form .btn-sumbit {
+  border: none;
+  height: 45px;
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 20px 30px, 140px 30px, 70px 50px;
+  border-radius: 5px;
+  border: 1px solid #111827;
+  color: white;
+  font-family: "Ubuntu";
+  font-size: 1rem;
+  transition: 0.5s all ease-in-out;
+}
+
+.content .container-log-in form .btn-sumbit:hover {
+  background-position: 0 0, 20px 30px, 140px 140px, 70px 100px;
+  box-shadow: 1px 1px 48px 3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 1px 48px 9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 48px 9px rgba(0,0,0,0.75);
+}
+
+.content .container-log-in form .btn-sumbit:active {
+  transition: 0.225s ease-in-out;
+  background-size: 50% 550%;
+}
+
+.content .container-log-in .error-container {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  background-color: #991b1b;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 1em;
+}

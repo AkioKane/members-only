@@ -148,6 +148,7 @@ header .container-user .account-details a:hover {
 
 .content .container-register {
   min-width: 300px;
+  max-width: 600px;
   width: 50%;
   margin-top: 2em;
   margin-bottom: 2em;
