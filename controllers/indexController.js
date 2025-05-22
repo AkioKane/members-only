@@ -7,9 +7,9 @@ async function getMessages() {
 
 async function indexRouterGet(req, res) {
   const data = await getMessages();
-  // console.log(data);
+  console.log(req.user);
 
-  return res.render("index", {title: "Home", database: data});
+  return res.render("index", { title: "Home", database: data, user: req.user });
 }
 
 module.exports = {

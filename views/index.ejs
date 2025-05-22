@@ -13,13 +13,18 @@
       <a href="/" class="logo-header"><h2>Jibber</h2></a>
       <h1>Dashboard</h1>
       <div class="container-user">
-        <div id="account-details" class="account-details">
-          <div class="details">
-            <a href="/logout">&#8226; <span>Log Out</span></a>
+        <% if (locals.user) { %>
+          <div id="account-details" class="account-details">
+            <div class="details">
+              <span class="username-account-details"><%= user.username %></span>
+              <a href="/logout">Log Out</a>
+            </div>
           </div>
-          <img src="/assets/user.png" alt="account">
-        </div>
-        <img class="user-logo" src="/assets/user.png" alt="account">
+          <span class="username-account"><%= user.username %></span>
+          <img class="user-logo" src="/assets/user.png" alt="account">
+        <% } else { %>
+          <h1>Not logged</h1>
+        <% } %>
       </div>
     </header>
 

@@ -8,7 +8,9 @@ function initialize(passport) {
       try {
         const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [username])
         const user = rows[0];
-        const hashedPassword = await bcrypt.compare(password, user.password);
+        // console.log(user);
+        // console.log(username, password);
+        const hashedPassword = await bcrypt.compare(password, user.password_hash);
   
         if (!user) {
           return done(null, false, { message: "Incorrect username" });
