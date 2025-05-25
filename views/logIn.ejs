@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/logIn.css">
+  <link rel="stylesheet" href="/public/header-login-btns.css">
   <title><%= title %></title>
 </head>
 <body>
@@ -11,26 +12,31 @@
   <div class="main">
     <header>
       <a href="/" class="logo-header"><h2>Jibber</h2></a>
-      <h1>Log In</h1>
+      <h1>Sign In</h1>
       <div class="container-user">
         <% if (locals.user) { %>
           <div id="account-details" class="account-details">
             <div class="details">
               <span class="username-account-details"><%= user.username %></span>
-              <a href="/logout">Log Out</a>
+              <a href="/log-out">Log Out</a>
             </div>
           </div>
           <span class="username-account"><%= user.username %></span>
           <img class="user-logo" src="/assets/user.png" alt="account">
         <% } else { %>
-          <h1>Not logged</h1>
+          <%- include("header-login-btns", {}) %>
         <% } %>
       </div>
     </header>
 
     <div class="content">
       <div class="container-log-in">
-        <form action="/log-in" method="post">
+        <% if (errorMessage) {%>
+          <div class="error-container">
+            <span><%= errorMessage %></span>
+          </div>
+        <% } %>
+        <form action="/sign-in" method="post">
           <label for="username">Username*:</label>
           <input name="username" type="text" id="username" placeholder="Username" required>
 

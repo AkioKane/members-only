@@ -8,16 +8,16 @@ function initialize(passport) {
       try {
         const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [username])
         const user = rows[0];
-        // console.log(user);
-        // console.log(username, password);
-        const hashedPassword = await bcrypt.compare(password, user.password_hash);
   
         if (!user) {
-          return done(null, false, { message: "Incorrect username" });
+          return done(null, false, { message: "Incorrect username or password" });
         }
+
+        const hashedPassword = await bcrypt.compare(password, user.password_hash);
         if (!hashedPassword) {
-          return done(null, false, { message: "Incorrect password" });
+          return done(null, false, { message: "Incorrect username or password" });
         }
+
         return done(null, user);
       } catch (err) {
         return done(err);

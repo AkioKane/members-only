@@ -7,6 +7,7 @@ const indexRouter = require("./routes/indexRouter");
 const registerRouter = require("./routes/registerRouter");
 const logInRouter = require("./routes/logInRouter");
 const initialize = require("./utils/passport-config");
+const logOutRouter = require("./routes/logOutRouter");
 
 const app = express();
 
@@ -27,11 +28,12 @@ app.use("/fonts", express.static(assetsPathFonts));
 app.use("/DOM", express.static(assetsPathDOM));
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 
-app.use("/", indexRouter)
-app.use("/register", registerRouter)
-app.use("/log-in", logInRouter)
+app.use("/", indexRouter);
+app.use("/sign-up", registerRouter);
+app.use("/sign-in", logInRouter);
+app.use("/log-out", logOutRouter);
 
 app.use((req, res, next) => {
   res.status(404).render("404", {
@@ -43,4 +45,4 @@ app.use((req, res, next) => {
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log("app listen in", PORT);
-})
+});

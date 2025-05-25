@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const { createUser, validUsername, validEmail } = require("../db/quaries");
 
 async function registerRouterGet(req, res) {
-  return res.render("register", {title: "Register Account", error: null});
+  return res.render("register", {title: "Sign Up", error: null});
 }
 
 async function registerRouterPost(req, res, next) {
@@ -12,11 +12,11 @@ async function registerRouterPost(req, res, next) {
     
     const matchUsername = await validUsername(username);
     if (!matchUsername) {
-      return res.render("register", { title: "Register Account", error: "Username already taken!" })
+      return res.render("register", { title: "SIgn Up", error: "Username already taken!" })
     }
     const matchEmail = await validEmail(email);
     if(!matchEmail) {
-      return res.render("register", { title: "Register Account", error: "Email already taken!" })
+      return res.render("register", { title: "Sign Up", error: "Email already taken!" })
     }
 
     await createUser(username, email, hashedPassword);
