@@ -1,0 +1,19 @@
+<header>
+  <a href="/" class="logo-header"><h2>Jibber</h2></a>
+  <h1>Dashboard</h1>
+  <div class="container-user">
+    <% if (locals.user) { %>
+      <div id="account-details" class="account-details">
+        <div class="details">
+          <span class="username-account-details"><%= user.username %></span>
+          <a href="/log-out">Log Out</a>
+          <a href="/create-message">Create Message</a>
+        </div>
+      </div>
+      <span class="username-account"><%= user.username %></span>
+      <img class="user-logo" src="/assets/user.png" alt="account">
+    <% } else { %>
+      <%- include("header-login-btns", {}) %>
+    <% } %>
+  </div>
+</header>

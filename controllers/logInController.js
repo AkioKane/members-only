@@ -8,7 +8,7 @@ async function getMessages() {
 async function logInRouterGet(req, res) {
   const data = await getMessages();
 
-  return res.render("logIn", {title: "Sign In", database: data, errorMessage: null});
+  return res.render("logIn", {title: "Sign In", database: data, user: req.user, errorMessage: null});
 }
 
 module.exports = {

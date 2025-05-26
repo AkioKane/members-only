@@ -36,6 +36,10 @@ body {
   font-family: "Cascadia", sans-serif;
 }
 
+header {
+  font-family: "Ubuntu";
+}
+
 .main {
   height: 100vh;
 }
@@ -48,51 +52,6 @@ body {
   height: var(--content-height);
   padding-bottom: 8em;
   gap: 5px;
-}
-
-header {
-  display: flex;
-  height: var(--header-size);
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 4em;
-  padding-right: 4em;
-  border-bottom: 1px solid #333333;
-}
-
-
-header .logo-header {
-  display: flex;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  letter-spacing: 2px;
-  transition: all 0.3s ease-in-out;
-  width: var(--header-child-width);
-}
-
-header h2 {
-  background-image: linear-gradient(90deg,rgba(255, 255, 255, 1) 25%, #737373 100%);
-  background-clip: auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-header h1 {
-  font-family: "Kachen";
-  transition: all 0.3s ease-in-out;
-}
-
-header .container-user {
-  width: var(--header-child-width);
-}
-
-header .logo-header:hover {
-  letter-spacing: 6px;
-}
-
-header h1:hover {
-  color: #d1d5db;
 }
 
 .error * {

@@ -8,6 +8,7 @@ const registerRouter = require("./routes/registerRouter");
 const logInRouter = require("./routes/logInRouter");
 const initialize = require("./utils/passport-config");
 const logOutRouter = require("./routes/logOutRouter");
+const createMessageRouter = require("./routes/createMessageRouter");
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use("/", indexRouter);
 app.use("/sign-up", registerRouter);
 app.use("/sign-in", logInRouter);
 app.use("/log-out", logOutRouter);
+app.use("/create-message", createMessageRouter);
 
 app.use((req, res, next) => {
   res.status(404).render("404", {

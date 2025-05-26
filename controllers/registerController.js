@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const { createUser, validUsername, validEmail } = require("../db/quaries");
 
 async function registerRouterGet(req, res) {
-  return res.render("register", {title: "Sign Up", error: null});
+  return res.render("register", {title: "Sign Up", user: req.user, error: null});
 }
 
 async function registerRouterPost(req, res, next) {

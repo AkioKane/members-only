@@ -3,15 +3,15 @@ require("dotenv").config();
 
 const data = [
   {
-    user: ["akio666", "akio666@example.com", "password_hash_here"],
+    user: ["akio666", "akio666@example.com", "password_hash_here", true],
     message: [1, "Test Text", new Date().toISOString()]
   },
   {
-    user: ["akio", "akio@example.com", "password_hash_here"],
+    user: ["akio", "akio@example.com", "password_hash_here", true],
     message: [2, "Akio Text", new Date().toISOString()]
   },
   {
-    user: ["akioPoBlatu", "akioBlatnoi@example.com", "password_hash_here"],
+    user: ["akioPoBlatu", "akioBlatnoi@example.com", "password_hash_here", true],
     message: [3, "Abu Boba", new Date().toISOString()]
   }
 ];
@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   username VARCHAR(50) UNIQUE NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
-  password_hash TEXT NOT NULL
+  password_hash TEXT NOT NULL,
+  secret_room_key BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS messages (
@@ -33,11 +34,11 @@ CREATE TABLE IF NOT EXISTS messages (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-INSERT INTO users (username, email, password_hash) 
+INSERT INTO users (username, email, password_hash, secret_room_key) 
 VALUES
-  ('${data[0].user[0]}', '${data[0].user[1]}', '${data[0].user[2]}'),
-  ('${data[1].user[0]}', '${data[1].user[1]}', '${data[1].user[2]}'),
-  ('${data[2].user[0]}', '${data[2].user[1]}', '${data[2].user[2]}');
+  ('${data[0].user[0]}', '${data[0].user[1]}', '${data[0].user[2]}', '${data[0].user[3]}'),
+  ('${data[1].user[0]}', '${data[1].user[1]}', '${data[1].user[2]}', '${data[1].user[3]}'),
+  ('${data[2].user[0]}', '${data[2].user[1]}', '${data[2].user[2]}', '${data[2].user[3]}');
 
 INSERT INTO messages (user_id, content, date)
 VALUES
