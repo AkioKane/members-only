@@ -10,7 +10,7 @@ async function indexRouterGet(req, res) {
   const data = await getMessages();
   // console.log(req.user);
 
-  return res.render("index", { title: "Home", database: data, user: req.user });
+  return res.render("index", { title: "Home", titleHeader: "Dashboard", database: data, user: req.user });
 }
 
 async function signInPassport(req, res, next) {
@@ -20,7 +20,7 @@ async function signInPassport(req, res, next) {
       return next(err);
     }
     if (!user) {
-      return res.render("logIn", {title: "Sign In", database: data, errorMessage: info.message});
+      return res.render("logIn", {title: "Sign In",  titleHeader: "Sign In", database: data, errorMessage: info.message});
     }
     req.logIn(user, (err) => {
       if (err) {

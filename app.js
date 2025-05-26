@@ -9,6 +9,7 @@ const logInRouter = require("./routes/logInRouter");
 const initialize = require("./utils/passport-config");
 const logOutRouter = require("./routes/logOutRouter");
 const createMessageRouter = require("./routes/createMessageRouter");
+const loginRoomRouter = require("./routes/loginRoomRouter");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use("/sign-up", registerRouter);
 app.use("/sign-in", logInRouter);
 app.use("/log-out", logOutRouter);
 app.use("/create-message", createMessageRouter);
+app.use("/login-secret-room", loginRoomRouter);
 
 app.use((req, res, next) => {
   res.status(404).render("404", {

@@ -12,11 +12,11 @@ async function registerRouterPost(req, res, next) {
     
     const matchUsername = await validUsername(username);
     if (!matchUsername) {
-      return res.render("register", { title: "SIgn Up", error: "Username already taken!" })
+      return res.render("register", { title: "Sign Up", titleHeader: "Sign Up", error: "Username already taken!" })
     }
     const matchEmail = await validEmail(email);
     if(!matchEmail) {
-      return res.render("register", { title: "Sign Up", error: "Email already taken!" })
+      return res.render("register", { title: "Sign Up", titleHeader: "Sign Up", error: "Email already taken!" })
     }
 
     await createUser(username, email, hashedPassword);
