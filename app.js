@@ -42,6 +42,7 @@ app.use("/login-secret-room", loginRoomRouter);
 app.use((req, res, next) => {
   res.status(404).render("404", {
     title: "Page not found!", 
+    titleHeader: "Not Found",
     text: "Try returning to the home page..."
   });
 });

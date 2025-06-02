@@ -1,4 +1,5 @@
 const pool = require("./pool");
+require("dotenv").config();
 
 async function getAllMessages() {
   const messages = await pool.query("SELECT * FROM messages;");
@@ -28,6 +29,23 @@ async function validEmail(email) {
   }
 }
 
+async function validSecretKey(key) {
+  if (key == process.env.SECRET_PASSWORD) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+async function updateSecretKeyUser(id) {
+  return await pool.query(`
+    UPDATE users
+    SET secret_room_key = $1
+    WHERE id = $2`,
+    [true, id]
+  );
+}
+
 async function createUser(username, email, hashedPassword) {
   return await pool.query(`
     INSERT INTO users (username, email, password_hash)
@@ -48,6 +66,8 @@ module.exports = {
   getAllMessages,
   validUsername,
   validEmail,
+  validSecretKey,
+  updateSecretKeyUser,
   createUser,
   createMessage
 }
