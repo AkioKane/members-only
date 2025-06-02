@@ -14,7 +14,7 @@
     <%- include("header", {}) %>
 
     <div class="content">
-      <% if (locals.user?.secret_room_key) { %>
+      <% if (locals.user.secret_room_key) { %>
         <!-- have room key -->
       <% } else {%>
         <!-- don`t have room key -->
