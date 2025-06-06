@@ -88,3 +88,9 @@ body {
 .posts .item .user-info img {
   height: 24px;
 }
+
+.posts .item .user-info div {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+}

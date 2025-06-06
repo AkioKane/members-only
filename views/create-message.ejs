@@ -14,10 +14,27 @@
     <%- include("header", {}) %>
 
     <div class="content">
-      <% if (locals.user.secret_room_key) { %>
-        <!-- have room key -->
-      <% } else {%>
-        <!-- don`t have room key -->
+      <% if (locals.user) { %>
+        <% if (locals.user.secret_room_key) { %>
+          <form action="/create-message" method="post">
+            <label for="message">Message*: </label>
+            <input name="message" id="message" type="text" placeholder="Message" required>
+
+            <button class="btn-sumbit" type="submit">Sumbit</button>
+          </form>
+        <% } else { %>
+          <div class="get-rights-container">
+            <div class="head-words">
+              <h1>Not enough rights</h1>
+              <span>Get the right to write a message!</span>
+            </div>
+            <a href="/login-secret-room">
+              <button class="redirect-room btn-sumbit">Get rights!</button>
+            </a>
+          </div>
+        <% } %>
+      <% } else { %>
+        <h1>Not logged!</h1>
       <% } %>
     </div>
   </div>

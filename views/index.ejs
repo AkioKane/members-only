@@ -23,7 +23,11 @@
             <div class="user-info">
               <div>
                 <img src="/assets/user.png" alt="user">
-                <span><%= database.users[data.user_id-1].username %></span>
+                <% if (locals.user) { %>
+                  <span><%= database.users[data.user_id-1].username %></span>
+                <% } else { %>
+                  <span>Anonymous</span>
+                <% } %>
               </div>
               <span>
                 <%= data.date.toLocaleDateString("ru-RU") %>
