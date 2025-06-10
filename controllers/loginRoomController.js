@@ -7,7 +7,7 @@ async function loginRoomRouterGet(req, res, next) {
 async function loginRoomRouterPost(req, res, next) {
   try {
     const { password } = req.body;
-    console.log(req.user);
+    // console.log(req.user);
     if (await validSecretKey(password) === true) {
       updateSecretKeyUser(req.user.id);
       res.redirect("/create-message");

@@ -56,7 +56,7 @@ async function createUser(username, email, hashedPassword) {
 
 async function createMessage(user_id, content) {
   return await pool.query(`
-    INSERT INTO messages (user_id, content, data)
+    INSERT INTO messages (user_id, content, date)
     VALUES ($1, $2, $3)`,
     [user_id, content, new Date().toISOString()]
   );
