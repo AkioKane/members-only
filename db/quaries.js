@@ -62,6 +62,14 @@ async function createMessage(user_id, content) {
   );
 }
 
+async function deleteMessage(message_id) {
+  return await pool.query(`
+    DELETE FROM messages
+    WHERE id = $1`,
+    [message_id]
+  )
+}
+
 module.exports = {
   getAllMessages,
   validUsername,
@@ -69,5 +77,6 @@ module.exports = {
   validSecretKey,
   updateSecretKeyUser,
   createUser,
-  createMessage
+  createMessage,
+  deleteMessage
 }

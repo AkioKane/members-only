@@ -34,6 +34,11 @@
                   <%= data.date.toLocaleTimeString("ru-RU", { hour: '2-digit' , minute: '2-digit' }) %>
               </span>
             </div>
+            <% if (user?.admin === true) { %>
+              <a href="/delete?message=<%= data.id %>">
+                <button class="delete-message">Delete</button>
+              </a>
+            <% } %>
           </div>
         <% } %>
       </div>

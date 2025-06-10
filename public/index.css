@@ -74,6 +74,23 @@ body {
   transform:translate(25px);
 }
 
+.posts .item a {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  text-decoration: none;
+  color: white;
+}
+
+.posts .item .delete-message {
+  background-color: #991b1b;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
 .posts .item .message {
   color: #d1d5db;
 }
